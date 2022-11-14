@@ -1,8 +1,8 @@
-const categories = [
+const categoriesData = [
   "FAKE: electronics",
   "FAKE: jewelery",
   "FAKE: men's clothing",
   "FAKE: women's clothing",
 ];
 
-export default categories;
+export default categoriesData;
