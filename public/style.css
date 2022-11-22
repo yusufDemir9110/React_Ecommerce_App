@@ -25,3 +25,19 @@
 .productCard img{
     width:80%;
 }
+
+.productDetailCardContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productDetailCardContainer div{
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.productDetailCardContainer div img {
+    width: 30%;
+}

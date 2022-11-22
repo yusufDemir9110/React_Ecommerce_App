@@ -1,14 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function Products({ filteredProducts }) {
+function Products({ productsData, isProductsLoading, showError }) {
   return (
-    <div className="productList">
-      {filteredProducts.map((product) => (
-        <div className="productCard" key={product.id}>
-          <img src={product.image} alt={product.title} />
-          <p>{product.title}</p>
-        </div>
-      ))}
+    <div>
+      <div className="productList">
+        {isProductsLoading ? (
+          <h1>Loading</h1>
+        ) : (
+          productsData.map((product) => (
+            <Link
+              to={`/products/${product.id}`}
+              state={product.id}
+              key={product.id}
+              className="productCard"
+            >
+              <div>
+                <img src={product.image} alt={product.title} />
+                <p>{product.title}</p>
+              </div>
+            </Link>
+          ))
+        )}
+      </div>
+      <div>
+        {showError !== null ? `Something went wrong: ${showError}` : ""}
+      </div>
     </div>
   );
 }

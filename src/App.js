@@ -1,23 +1,16 @@
-import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Categories from "./components/Categories";
-import Products from "./components/Products";
-import productsData from "./fake-data/all-products";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
-  const [filteredProducts, setFilteredProducts] = useState(productsData);
-  const changeCategory = (newCategory) => {
-    const newProductsData = productsData.filter(
-      (category) => category.category === newCategory
-    );
-    setFilteredProducts(newProductsData);
-  };
-
   return (
-    <div>
-      <Categories changeCategory={changeCategory} />
-      <Products filteredProducts={filteredProducts} />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/products/:id" element={<ProductDetail />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

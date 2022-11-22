@@ -1,16 +1,18 @@
 import React from "react";
-import categoriesData from "../fake-data/all-categories";
 
-function Categories({ changeCategory }) {
+function Categories({ changeCategory, categoriesData, showError }) {
   return (
-    <div className="categoryList">
-      {categoriesData.map((category) => (
-        <div key={category}>
-          <button onClick={() => changeCategory(category.slice(6))}>
-            {category}
-          </button>
-        </div>
-      ))}
+    <div>
+      <div className="categoryList">
+        {categoriesData.map((category) => (
+          <div key={category}>
+            <button onClick={() => changeCategory(category)}>{category}</button>
+          </div>
+        ))}
+      </div>
+      <div>
+        {showError !== null ? `Something went wrong: ${showError}` : ""}
+      </div>
     </div>
   );
 }
