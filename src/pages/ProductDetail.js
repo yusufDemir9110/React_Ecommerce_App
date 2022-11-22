@@ -13,7 +13,7 @@ const ProductDetail = () => {
       setProduct(data);
     };
     getProductDetail();
-  }, []);
+  }, [location.state]);
   return (
     <div className="productDetailCardContainer">
       <div key={product.id}>
