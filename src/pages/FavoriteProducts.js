@@ -31,7 +31,7 @@ const FavoriteProducts = () => {
       }
     };
     getProductData();
-  }, [favoriteProducts]);
+  }, [favoriteProductsIds, productsData]);
 
   return (
     <div className="productList">
