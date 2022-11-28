@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalState";
+import FavLogo from "../assets/heart-solid.svg";
+import NotFavLogo from "../assets/heart-regular.svg";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
   const location = useLocation();
+  const { addFavorite, removeFavorite, favoriteProductsIds } =
+    useContext(GlobalContext);
   useEffect(() => {
     const getProductDetail = async () => {
       const response = await fetch(
@@ -17,6 +22,22 @@ const ProductDetail = () => {
   return (
     <div className="productDetailCardContainer">
       <div key={product.id}>
+        <div
+          className="favoriteHearthContainer"
+          onClick={
+            favoriteProductsIds.includes(product.id)
+              ? (e) => removeFavorite(product.id, e)
+              : (e) => addFavorite(product.id, e)
+          }
+        >
+          <img
+            className="detailFavoriteHearth"
+            src={
+              favoriteProductsIds.includes(product.id) ? FavLogo : NotFavLogo
+            }
+            alt="favorite hearth"
+          />
+        </div>
         <img src={product.image} alt={product.title} />
         <h2>{product.title}</h2>
         <h3>Category: {product.category}</h3>

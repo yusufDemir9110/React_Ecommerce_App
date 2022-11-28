@@ -14,6 +14,7 @@
 }
 
 .productCard{
+    position: relative;
     width: 30%;
     margin:1.5%;
     display: flex;
@@ -30,6 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .productDetailCardContainer div{
@@ -40,4 +42,32 @@
 }
 .productDetailCardContainer div img {
     width: 30%;
+}
+
+
+.favoriteHearthContainer{
+    width:2rem;
+    position: absolute;
+    right:0;
+    top:0;
+}
+
+.detailFavoriteHearth{
+    width: 2rem !important;
+
+}
+
+nav{
+    padding:1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav ul li{
+    list-style: none;
+    margin: 0 1rem;
 }

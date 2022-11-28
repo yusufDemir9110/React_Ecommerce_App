@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Categories from "../components/Categories";
+
 import Products from "../components/Products";
 
 const Home = () => {
