@@ -19,8 +19,9 @@ const FavoriteProducts = () => {
         const newData = [];
         productsData.map((item) => {
           if (favoriteProductsIds.includes(item.id)) {
-            return newData.push(item);
+            newData.push(item);
           }
+          return newData;
         });
         setFavoriteProducts(newData);
         setIsProductsLoading(false);

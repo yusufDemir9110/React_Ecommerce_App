@@ -2,7 +2,6 @@ import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 import FavLogo from "../assets/heart-solid.svg";
 import NotFavLogo from "../assets/heart-regular.svg";
-import ProductDetail from "../pages/ProductDetail";
 
 const initialState = {
   favoriteProductsIds: [],
